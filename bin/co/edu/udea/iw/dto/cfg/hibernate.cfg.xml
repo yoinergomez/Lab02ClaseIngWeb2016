@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+    
+    
+    
+    <!-- Configurando el POOL de conexiones -->
+    
+    <!-- Importar libreria para la conexion con la BD -->
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    
+    <!-- Indicar la ruta de la BD -->
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/clase</property>
+    
+    <!-- Indicar el usuario para el logueo-->
+    <property name="hibernate.connection.username">root</property>
+    
+    <!-- Indicar el password para el logueo-->
+    <property name="hibernate.connection.password">root</property>
+    
+    
+    
+    
+    <!-- Indicar que motor de base de datos va utilizar el Framework -->
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    
+    <!-- Mostrar las operaciones que se realizan en la BD -->
+    <!-- Desactivar cuando se despliegue la aplicacion en produccion -->
+    <property name="show_sql">true</property>
+    
+    
+    <!-- Indicar donde se van a mapear los datos obtenidos de la BD -->
+    <mapping resource="co/edu/udea/iw/dto/Ciudad.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>
