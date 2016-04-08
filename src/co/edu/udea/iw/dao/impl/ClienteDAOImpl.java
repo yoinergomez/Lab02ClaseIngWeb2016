@@ -9,20 +9,20 @@ import org.hibernate.classic.Session;
 import org.hibernate.criterion.Restrictions;
 
 import co.edu.udea.iw.dao.HibernateSessionFactory;
-import co.edu.udea.iw.dto.Ciudad;
-import co.edu.udea.iw.dto.CiudadDAO;
+import co.edu.udea.iw.dto.Cliente;
+import co.edu.udea.iw.dto.ClienteDAO;
 import co.edu.udea.iw.util.exception.ExceptionAplication;
 
-public class CiudadDAOImpl implements CiudadDAO{
+public class ClienteDAOImpl implements ClienteDAO{
 
 	@Override
-	public void insertar(Ciudad ciudad) throws ExceptionAplication {
+	public void insertar(Cliente cliente) throws ExceptionAplication {
 		Session session = null;
 		try{
 			session = HibernateSessionFactory.getInstance().getSession();
 			
 			Transaction tx = session.beginTransaction();
-			session.save(ciudad);
+			session.save(cliente);
 			tx.commit();
 			
 		} catch(HibernateException e){
@@ -36,14 +36,14 @@ public class CiudadDAOImpl implements CiudadDAO{
 	}
 
 	@Override
-	public List<Ciudad> obtenerTodas() throws ExceptionAplication {
+	public List<Cliente> obtenerTodos() throws ExceptionAplication {
 		Session session = null;
-		List<Ciudad> ciudades = null;
+		List<Cliente> clientes = null;
 		try{
 			session = HibernateSessionFactory.getInstance().getSession();
-			Criteria criteria = session.createCriteria(Ciudad.class);
+			Criteria criteria = session.createCriteria(Cliente.class);
 			
-			ciudades = criteria.list();
+			clientes = criteria.list();
 			
 		} catch(HibernateException e){
 			throw new ExceptionAplication(e);
@@ -52,17 +52,17 @@ public class CiudadDAOImpl implements CiudadDAO{
 				session.close();
 			}
 		}
-		return ciudades;
+		return clientes;
 	}
 
 	@Override
-	public void modificar(Ciudad ciudad) throws ExceptionAplication {
+	public void modificar(Cliente cliente) throws ExceptionAplication {
 		Session session = null;
 		try{
 			session = HibernateSessionFactory.getInstance().getSession();
 			
 			Transaction tx = session.beginTransaction();
-			session.update(ciudad);
+			session.update(cliente);
 			tx.commit();
 			
 		} catch(HibernateException e){
@@ -71,18 +71,17 @@ public class CiudadDAOImpl implements CiudadDAO{
 			if (session != null){
 				session.close();
 			}
-		}
-		
+		}		
 	}
 
 	@Override
-	public void eliminar(Ciudad ciudad) throws ExceptionAplication {
+	public void eliminar(Cliente cliente) throws ExceptionAplication {
 		Session session = null;
 		try{
 			session = HibernateSessionFactory.getInstance().getSession();
 			
 			Transaction tx = session.beginTransaction();
-			session.delete(ciudad);
+			session.delete(cliente);
 			tx.commit();
 			
 		} catch(HibernateException e){
@@ -91,28 +90,20 @@ public class CiudadDAOImpl implements CiudadDAO{
 			if (session != null){
 				session.close();
 			}
-		}
-		
+		}		
 	}
 
 	@Override
-	public Ciudad obtener(Long codigo) throws ExceptionAplication {
-		Ciudad ciudad = null;
+	public Cliente obtener(String cedula) throws ExceptionAplication {
+		Cliente cliente = null;
 		Session session = null;
 		try{
 			session = HibernateSessionFactory.getInstance().getSession();
-			//Desde aqui
-			Criteria criteria = session.createCriteria(Ciudad.class);
-			criteria.add(Restrictions.eq("codigo", codigo));
-			
-			//Obtener el unica tupla de la BD
-			ciudad = (Ciudad) criteria.uniqueResult();
-			//Hasta aqui
-			
-			/*
-			//Se puede reemplazar por
-			ciudad = (Ciudad) session.get(Ciudad.class, codigo);
-			*/
+
+			Criteria criteria = session.createCriteria(Cliente.class);
+			criteria.add(Restrictions.eq("cedula", cedula));
+
+			cliente = (Cliente) criteria.uniqueResult();
 			
 		} catch(HibernateException e){
 			throw new ExceptionAplication(e);
@@ -121,7 +112,9 @@ public class CiudadDAOImpl implements CiudadDAO{
 				session.close();
 			}
 		}
-		return ciudad;
+		return cliente;
 	}
+
+
 
 }

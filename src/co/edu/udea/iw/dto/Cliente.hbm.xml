@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/04/2016 06:25:06 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="co.edu.udea.iw.dto.Cliente" table="CLIENTE">
+        <id name="cedula" type="java.lang.String">
+            <column name="CEDULA" length="15"/>
+            <generator class="assigned" />
+        </id>
+        <property name="nombres" type="java.lang.String">
+            <column name="NOMBRES" not-null="true" length="30"/>
+        </property>
+        <property name="apellidos" type="java.lang.String">
+            <column name="APELLIDOS" not-null="true" length="30"/>
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" not-null="true" length="120"/>
+        </property>
+        <property name="usuarioCrea" type="java.lang.String">
+            <column name="USUARIOCREA" not-null="true" length="15"/>
+        </property>
+        <property name="usuarioModifica" type="java.lang.String">
+            <column name="USUARIOMODIFICA" length="15"/>
+        </property>
+        <property name="usuarioElimina" type="java.lang.String">
+            <column name="USUARIOELIMINA" length="15"/>
+        </property>
+        <property name="eliminado" type="boolean">
+            <column name="ELIMINADO" />
+        </property>
+        <property name="fechaCreacion" type="java.util.Date">
+            <column name="FECHACREACION" not-null="true"/>
+        </property>
+        <property name="fechaEliminacion" type="java.util.Date">
+            <column name="FECHAELIMINACION" />
+        </property>
+    </class>
+</hibernate-mapping>
