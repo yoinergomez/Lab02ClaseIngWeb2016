@@ -22,8 +22,8 @@ public class ClienteDAOImplTest {
 			
 			assertTrue(clientes.size()>0);
 		} catch(ExceptionAplication e){
-			fail(e.getMessage());
 			e.printStackTrace();
+			fail(e.getMessage());
 		}
 	}
 

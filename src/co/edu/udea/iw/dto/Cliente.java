@@ -57,11 +57,18 @@ public class Cliente {
 	public void setUsuarioElimina(String usuarioElimina) {
 		this.usuarioElimina = usuarioElimina;
 	}
-	public boolean isEliminado() {
-		return eliminado;
+	public int getEliminado() {
+		if(eliminado==true){
+			return 1;
+		}
+		return 0;
 	}
-	public void setEliminado(boolean eliminado) {
-		this.eliminado = eliminado;
+	public void setEliminado(Long eliminado) {
+		if(eliminado==null || eliminado==0){
+			this.eliminado = false;
+			return;
+	    }
+		this.eliminado = true;
 	}
 	public Date getFechaCreacion() {
 		return fechaCreacion;
