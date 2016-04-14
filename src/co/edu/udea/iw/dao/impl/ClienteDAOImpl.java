@@ -13,14 +13,23 @@ import co.edu.udea.iw.dto.Cliente;
 import co.edu.udea.iw.dto.ClienteDAO;
 import co.edu.udea.iw.util.exception.ExceptionAplication;
 
+/**
+ * Implementa los metodos CRUD para operar en la entidad Cliente
+ * @author Yoiner Esteban Gomez Ayala yoiner.gomez22@gmail.com
+ * @version 1.0
+ */
 public class ClienteDAOImpl implements ClienteDAO{
-
+	
+	/**
+	 * Insertar cliente en la base de datos
+	 */
 	@Override
 	public void insertar(Cliente cliente) throws ExceptionAplication {
 		Session session = null;
 		try{
 			session = HibernateSessionFactory.getInstance().getSession();
 			
+			//Guarda el cliente en la BD
 			Transaction tx = session.beginTransaction();
 			session.save(cliente);
 			tx.commit();
@@ -34,7 +43,10 @@ public class ClienteDAOImpl implements ClienteDAO{
 		}
 		
 	}
-
+	
+	/**
+	 * Obtiene todos los clientes de la base de datos
+	 */
 	@Override
 	public List<Cliente> obtenerTodos() throws ExceptionAplication {
 		Session session = null;
@@ -54,7 +66,11 @@ public class ClienteDAOImpl implements ClienteDAO{
 		}
 		return clientes;
 	}
-
+	
+	/**
+	 * Modifica un cliente de acuerdo a un objeto 
+	 * cliente ingresado como parametro
+	 */
 	@Override
 	public void modificar(Cliente cliente) throws ExceptionAplication {
 		Session session = null;
@@ -73,7 +89,11 @@ public class ClienteDAOImpl implements ClienteDAO{
 			}
 		}		
 	}
-
+	
+	/**
+	 * Elimina un cliente según el objeto cliente
+	 * ingresado como parametro
+	 */
 	@Override
 	public void eliminar(Cliente cliente) throws ExceptionAplication {
 		Session session = null;
@@ -92,7 +112,11 @@ public class ClienteDAOImpl implements ClienteDAO{
 			}
 		}		
 	}
-
+	
+	/**
+	 * Obtiene un cliente de acuerdo a la cedula 
+	 * ingresada como parametro
+	 */
 	@Override
 	public Cliente obtener(String cedula) throws ExceptionAplication {
 		Cliente cliente = null;

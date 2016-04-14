@@ -2,15 +2,22 @@ package co.edu.udea.iw.dto;
 
 import java.util.Date;
 
+/**
+ * Permite la representaciion de los datos 
+ * de la tabla cliente que se obtienen del DataSource
+ * @author Yoiner Gomez yoiner.gomez22@gmail.com
+ * @version 1
+ * @category DTO
+ */
 public class Cliente {
 	
 	private String cedula;
 	private String nombres;
 	private String apellidos;
 	private String email;
-	private String usuarioCrea;
-	private String usuarioModifica;
-	private String usuarioElimina;
+	private Usuario usuarioCrea;
+	private Usuario usuarioModifica;
+	private Usuario usuarioElimina;
 	private boolean eliminado;
 	private Date fechaCreacion;
 	private Date fechaEliminacion;
@@ -39,22 +46,41 @@ public class Cliente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getUsuarioCrea() {
+	
+	/**
+	 * @return the usuarioCrea
+	 */
+	public Usuario getUsuarioCrea() {
 		return usuarioCrea;
 	}
-	public void setUsuarioCrea(String usuarioCrea) {
+	/**
+	 * @param usuarioCrea the usuarioCrea to set
+	 */
+	public void setUsuarioCrea(Usuario usuarioCrea) {
 		this.usuarioCrea = usuarioCrea;
 	}
-	public String getUsuarioModifica() {
+	/**
+	 * @return the usuarioModifica
+	 */
+	public Usuario getUsuarioModifica() {
 		return usuarioModifica;
 	}
-	public void setUsuarioModifica(String usuarioModifica) {
+	/**
+	 * @param usuarioModifica the usuarioModifica to set
+	 */
+	public void setUsuarioModifica(Usuario usuarioModifica) {
 		this.usuarioModifica = usuarioModifica;
 	}
-	public String getUsuarioElimina() {
+	/**
+	 * @return the usuarioElimina
+	 */
+	public Usuario getUsuarioElimina() {
 		return usuarioElimina;
 	}
-	public void setUsuarioElimina(String usuarioElimina) {
+	/**
+	 * @param usuarioElimina the usuarioElimina to set
+	 */
+	public void setUsuarioElimina(Usuario usuarioElimina) {
 		this.usuarioElimina = usuarioElimina;
 	}
 	public int getEliminado() {

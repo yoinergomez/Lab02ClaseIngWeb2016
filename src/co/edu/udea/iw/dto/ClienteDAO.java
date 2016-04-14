@@ -30,12 +30,12 @@ public interface ClienteDAO {
 	 */
 	public void modificar(Cliente cliente) throws ExceptionAplication;
 	
-	/*
+	/**
 	 * Elimina un cliente de la base de datos
 	 */
 	public void eliminar(Cliente cliente) throws ExceptionAplication;
 	
-	/*
+	/**
 	 * Obtiene un cliente dado un codigo de cliente
 	 */
 	public Cliente obtener(String cedula) throws ExceptionAplication;

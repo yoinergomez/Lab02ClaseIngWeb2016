@@ -9,14 +9,13 @@ import java.util.List;
 
 import org.junit.Test;
 
+/**
+ * Permite realizar las pruebas unitarias
+ * de la implementacion de CiudadDAO
+ * @author Yoiner Esteban Gomez Ayala yoiner.gomez22@gmail.com
+ * @version 1.0
+ */
 public class CiudadDAOImplTest {
-	
-	/*
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
-	*/
 	
 	@Test
 	public void testObtener(){

@@ -7,8 +7,10 @@ import org.hibernate.classic.Session;
 
 import co.edu.udea.iw.util.exception.ExceptionAplication;
 
-/*
- * Clase DataSource que obtiene la conexion con la BD
+/**
+ * DataSource que obtiene la conexion con la BD
+ * @author Yoiner Esteban Gomez Ayala yoiner.gomez22@gmail.com
+ * @version 1.0
  */
 public class HibernateSessionFactory {
 

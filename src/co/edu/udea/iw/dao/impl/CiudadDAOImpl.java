@@ -13,8 +13,17 @@ import co.edu.udea.iw.dto.Ciudad;
 import co.edu.udea.iw.dto.CiudadDAO;
 import co.edu.udea.iw.util.exception.ExceptionAplication;
 
+/**
+ * Implementa los metodos CRUD para operar en la entidad Ciudad
+ * @author Yoiner Esteban Gomez Ayala yoiner.gomez22@gmail.com
+ * @version 1.0
+ */
 public class CiudadDAOImpl implements CiudadDAO{
-
+	
+	/**
+	 * Inserta una ciudad en la base de datos
+	 * de acuerdo con el objeto Ciudad enviado como parametro
+	 */
 	@Override
 	public void insertar(Ciudad ciudad) throws ExceptionAplication {
 		Session session = null;
@@ -34,7 +43,11 @@ public class CiudadDAOImpl implements CiudadDAO{
 		}
 		
 	}
-
+	
+	/**
+	 * Obtiene todas las ciudades de la base de datos
+	 * y la retorna en una lista que contiene objetos de tipo Ciudad
+	 */
 	@Override
 	public List<Ciudad> obtenerTodas() throws ExceptionAplication {
 		Session session = null;
@@ -54,7 +67,11 @@ public class CiudadDAOImpl implements CiudadDAO{
 		}
 		return ciudades;
 	}
-
+	
+	/**
+	 * Modifica una ciudad de acuerdo a los datos
+	 * del objeto de tipo Ciudad ingresado en el parametro
+	 */
 	@Override
 	public void modificar(Ciudad ciudad) throws ExceptionAplication {
 		Session session = null;
@@ -74,7 +91,11 @@ public class CiudadDAOImpl implements CiudadDAO{
 		}
 		
 	}
-
+	
+	/**
+	 * Elimina una ciudad de la base de datos según
+	 * el objeto de tipo Ciudad ingresado en el parametro
+	 */
 	@Override
 	public void eliminar(Ciudad ciudad) throws ExceptionAplication {
 		Session session = null;
@@ -94,7 +115,11 @@ public class CiudadDAOImpl implements CiudadDAO{
 		}
 		
 	}
-
+	
+	/**
+	 * Obtiene una ciudad de la base de datos de 
+	 * acuerdo al codigo que identifica a dicho objeto
+	 */
 	@Override
 	public Ciudad obtener(Long codigo) throws ExceptionAplication {
 		Ciudad ciudad = null;
